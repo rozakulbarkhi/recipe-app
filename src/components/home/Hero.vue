@@ -1,14 +1,14 @@
 <template>
   <div class="w-full h-dvh relative">
     <img
-      src="../assets/images/bg-hero.jpg"
+      src="../../assets/images/bg-hero.jpg"
       alt="hero image"
       class="h-full object-cover brightness-75"
     />
 
     <div class="absolute top-2/3 left-1/2 transform -translate-y-1/2">
       <img
-        src="../assets/images/food.png"
+        src="../../assets/images/food.png"
         alt="food image"
         class="object-cover w-full h-full"
       />
@@ -28,7 +28,7 @@
         </h1>
 
         <img
-          src="../assets/images/chef.png"
+          src="../../assets/images/chef.png"
           alt="chef image"
           class="absolute top-0 -right-20 transform -translate-y-1/2 object-cover -z-20"
           height="240"
