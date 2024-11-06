@@ -1,3 +1,9 @@
 <template>
-  <h1>hello world</h1>
+  <Layout>
+    <router-view />
+  </Layout>
 </template>
+
+<script setup>
+import Layout from "./layouts/Layout.vue";
+</script>
