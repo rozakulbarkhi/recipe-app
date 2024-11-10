@@ -1,5 +1,5 @@
 <template>
-  <div class="container mx-auto flex gap-8">
+  <div class="container max-w-screen-xl mx-auto flex gap-8">
     <Card />
     <Sidebar />
   </div>

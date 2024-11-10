@@ -3,7 +3,7 @@
     <img
       src="../../assets/images/bg-hero.jpg"
       alt="hero image"
-      class="h-full object-cover brightness-75"
+      class="w-full h-full object-cover brightness-75"
     />
 
     <div class="absolute top-2/4 left-1/2 transform -translate-y-1/2">

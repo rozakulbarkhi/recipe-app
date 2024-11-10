@@ -3,12 +3,14 @@
     class="fixed w-full p-6 z-20 transition duration-300 ease-in-out"
     :class="isScrolled ? 'bg-white border-b' : 'bg-transparent'"
   >
-    <div class="container mx-auto flex justify-between items-center">
+    <div
+      class="container max-w-screen-xl mx-auto flex justify-between items-center"
+    >
       <Logo />
 
       <div
         class="flex gap-6 text-xl"
-        :class="isScrolled || $route.path !== '/' ? 'text-black' : 'text-white'"
+        :class="isScrolled ? 'text-black' : 'text-white'"
       >
         <div v-for="menu in menus" :key="menu.label">
           <router-link
