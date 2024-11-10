@@ -1,5 +1,5 @@
 <template>
-  <footer>
+  <footer class="border-t">
     <div class="container mx-auto p-6 flex items-center justify-between">
       <Logo />
 

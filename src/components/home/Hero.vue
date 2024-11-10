@@ -18,7 +18,7 @@
       class="absolute top-1/2 right-1/2 left-44 transform -translate-y-1/2 space-y-8 text-gray-50"
     >
       <div class="relative">
-        <h1 class="text-5xl font-bold">
+        <h1 class="text-6xl font-bold">
           Discover
           <span
             class="text-transparent bg-clip-text bg-gradient-to-r from-blue-900 to-blue-600"
@@ -30,7 +30,7 @@
         <img
           src="../../assets/images/chef.png"
           alt="chef image"
-          class="absolute top-0 -right-20 transform -translate-y-1/2 object-cover -z-20"
+          class="absolute top-0 right-32 transform -translate-y-1/2 object-cover -z-20"
           height="240"
           width="240"
         />
