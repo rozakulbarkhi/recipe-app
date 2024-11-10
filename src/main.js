@@ -1,19 +1,29 @@
 import { createApp } from "vue";
 import { createRouter, createWebHistory } from "vue-router";
 import { createPinia } from "pinia";
+import piniaPluginPersistedstate from "pinia-plugin-persistedstate";
 
 import "./index.css";
 
 import App from "./App.vue";
+
 import Home from "./pages/Home.vue";
 import About from "./pages/About.vue";
+import Recipe from "./pages/Recipe.vue";
 
 const routes = [
   {
     path: "/",
+    name: "home",
     component: Home,
   },
-  { path: "/about", component: About },
+  { path: "/about", name: "about", component: About },
+  {
+    path: "/recipe/:slug",
+    name: "recipe",
+    sensitive: true,
+    component: Recipe,
+  },
 ];
 
 const router = createRouter({
@@ -22,6 +32,7 @@ const router = createRouter({
 });
 
 const pinia = createPinia();
+pinia.use(piniaPluginPersistedstate);
 
 const app = createApp(App);
 
