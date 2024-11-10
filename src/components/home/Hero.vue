@@ -6,7 +6,7 @@
       class="h-full object-cover brightness-75"
     />
 
-    <div class="absolute top-2/3 left-1/2 transform -translate-y-1/2">
+    <div class="absolute top-2/4 left-1/2 transform -translate-y-1/2">
       <img
         src="../../assets/images/food.png"
         alt="food image"
@@ -18,10 +18,10 @@
       class="absolute top-1/2 right-1/2 left-44 transform -translate-y-1/2 space-y-8 text-gray-50"
     >
       <div class="relative">
-        <h1 class="text-6xl font-bold">
+        <h1 class="text-6xl font-bold max-w-lg">
           Discover
           <span
-            class="text-transparent bg-clip-text bg-gradient-to-r from-blue-900 to-blue-600"
+            class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-900"
             >Delicious Recipes</span
           >
           Every Day
@@ -30,7 +30,7 @@
         <img
           src="../../assets/images/chef.png"
           alt="chef image"
-          class="absolute top-0 right-32 transform -translate-y-1/2 object-cover -z-20"
+          class="absolute top-4 right-20 transform -translate-y-1/2 object-cover -z-20"
           height="240"
           width="240"
         />
