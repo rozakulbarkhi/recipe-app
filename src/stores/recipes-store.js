@@ -1,5 +1,6 @@
-import { getRecipes } from "@/api/get-recipes";
 import { defineStore } from "pinia";
+
+import { getRecipes } from "@/api/get-recipes";
 
 export const useRecipesStore = defineStore("recipes", {
   state: () => ({
@@ -36,4 +37,5 @@ export const useRecipesStore = defineStore("recipes", {
       }
     },
   },
+  persist: true,
 });
