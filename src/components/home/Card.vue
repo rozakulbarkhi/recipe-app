@@ -11,13 +11,11 @@
         class="flex gap-2 border rounded-lg h-[320px]"
       >
         <div class="relative overflow-hidden rounded-s-lg flex-1">
-          <div>
-            <img
-              :src="recipe.image"
-              :alt="recipe.name"
-              class="object-cover hover:scale-110 transition duration-300 ease-in-out h-full"
-            />
-          </div>
+          <img
+            :src="recipe.image"
+            :alt="recipe.name"
+            class="object-cover hover:scale-110 transition duration-300 ease-in-out w-full h-full"
+          />
 
           <div class="absolute flex items-center top-4 left-4 gap-2 w-full">
             <div
