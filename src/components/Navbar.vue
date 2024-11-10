@@ -8,7 +8,7 @@
 
       <div
         class="flex gap-6 text-xl"
-        :class="isScrolled ? 'text-black' : 'text-white'"
+        :class="isScrolled || $route.path !== '/' ? 'text-black' : 'text-white'"
       >
         <div v-for="menu in menus" :key="menu.label">
           <router-link

@@ -22,7 +22,6 @@
 </template>
 
 <script setup>
-import { onMounted } from "vue";
 import { storeToRefs } from "pinia";
 
 import { useRecipesStore } from "@/stores/recipes-store";
@@ -32,7 +31,4 @@ import CategoriesSkeleton from "../skeleton/CategoriesSkeleton.vue";
 const store = useRecipesStore();
 
 const { mealTypes, loading, error } = storeToRefs(store);
-const { fetchData } = store;
-
-onMounted(() => fetchData());
 </script>

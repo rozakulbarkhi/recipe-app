@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <router-link to="/">
     <img
       src="../assets/images/logo.png"
       alt="logo"
@@ -7,7 +7,7 @@
       width="180"
       height="180"
     />
-  </div>
+  </router-link>
 </template>
 
 <script setup></script>

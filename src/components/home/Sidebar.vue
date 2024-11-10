@@ -56,7 +56,6 @@
 </template>
 
 <script setup>
-import { onMounted } from "vue";
 import { storeToRefs } from "pinia";
 
 import { useRecipesStore } from "@/stores/recipes-store";
@@ -66,7 +65,4 @@ import DifficultySkeleton from "../skeleton/DifficultySkeleton.vue";
 const store = useRecipesStore();
 
 const { tags, difficulty, cookTime, loading, error } = storeToRefs(store);
-const { fetchData } = store;
-
-onMounted(() => fetchData());
 </script>

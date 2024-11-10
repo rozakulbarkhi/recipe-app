@@ -90,13 +90,14 @@
               </ul>
             </div>
 
-            <div
+            <router-link
+              :to="'/recipe/' + slugify(recipe.name.toLowerCase())"
               class="flex items-center gap-1 justify-end w-full text-sm hover:text-blue-900 transition-colors duration-300 ease-in-out cursor-pointer"
             >
               <div class="capitalize">read more</div>
 
               <ChevronRight :size="20" />
-            </div>
+            </router-link>
           </div>
         </div>
       </div>
@@ -105,16 +106,15 @@
 </template>
 
 <script setup>
-import { onMounted } from "vue";
 import { storeToRefs } from "pinia";
 import { Star, ChevronRight, Clock } from "lucide-vue-next";
+import slugify from "slugify";
+
 import { useRecipesStore } from "@/stores/recipes-store";
+
 import CardSkeleton from "../skeleton/CardSkeleton.vue";
 
 const store = useRecipesStore();
 
 const { recipes, loading, error } = storeToRefs(store);
-const { fetchData } = store;
-
-onMounted(() => fetchData());
 </script>
