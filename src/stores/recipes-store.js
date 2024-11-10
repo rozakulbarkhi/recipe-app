@@ -9,39 +9,17 @@ export const useRecipesStore = defineStore("recipes", {
     mealTypes: [],
     tags: [],
     difficulty: [],
-    cookTime: [],
+    cookTime: ["< 5 min", "5-10 min", "> 10 min"],
   }),
-  getters: {
-    setLoading(state) {
-      return state.loading;
-    },
-    setError(state) {
-      return state.error;
-    },
-    setRecipes(state) {
-      return state.recipes;
-    },
-    setMealType(state) {
-      return state.mealTypes;
-    },
-    setTags(state) {
-      return state.tags;
-    },
-    setDifficulty(state) {
-      return state.difficulty;
-    },
-    setCookTime(state) {
-      return state.cookTime;
-    },
-  },
   actions: {
     async fetchData() {
       this.loading = true;
+      this.error = null;
 
       try {
         const res = await getRecipes();
 
-        const data = res?.recipes;
+        const data = res?.recipes ?? [];
 
         this.recipes = data;
         this.mealTypes = [
@@ -51,9 +29,8 @@ export const useRecipesStore = defineStore("recipes", {
         this.difficulty = [
           ...new Set(data?.flatMap((recipe) => recipe.difficulty)),
         ];
-        this.cookTime = ["< 5 min", "5-10 min", "> 10 min"];
       } catch (err) {
-        this.error = "Failed to load data. Please try again.";
+        this.error = err.message || "Failed to load data. Please try again.";
       } finally {
         this.loading = false;
       }
