@@ -1,7 +1,7 @@
 <template>
   <footer class="border-t">
     <div
-      class="container max-w-screen-xl mx-auto p-6 flex items-center justify-between"
+      class="container max-w-screen-xl mx-auto py-6 flex items-center justify-between"
     >
       <Logo />
 

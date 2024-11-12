@@ -1,5 +1,5 @@
 <template>
-  <div class="container max-w-screen-xl mx-auto px-6 py-12 space-y-6">
+  <div class="container max-w-screen-xl mx-auto py-12 space-y-6">
     <div class="flex gap-2">
       <router-link to="/" class="text-blue-900 cursor-pointer"
         >Home</router-link
@@ -8,7 +8,11 @@
       <div>{{ recipe.name }}</div>
     </div>
 
-    <div class="flex gap-12 h-full w-full">
+    <template v-if="loading">
+      <DetailRecipeSkeleton />
+    </template>
+
+    <div v-else class="flex gap-12 h-full w-full">
       <div class="relative w-full h-full overflow-hidden rounded-lg flex-1">
         <div class="w-full h-[320px]">
           <img
@@ -121,14 +125,25 @@
 </template>
 
 <script setup>
+import { watch } from "vue";
 import { storeToRefs } from "pinia";
 import { Anvil, Clock, FlameKindling, Star } from "lucide-vue-next";
 
 import Recommendation from "./Recommendation.vue";
+import DetailRecipeSkeleton from "../skeleton/DetailRecipeSkeleton.vue";
 
 import { useRecipeStore } from "@/stores/recipe-store";
+import { useRoute } from "vue-router";
+
+const route = useRoute();
+const { slug } = route.params;
 
 const store = useRecipeStore();
 
 const { recipe, loading, error } = storeToRefs(store);
+
+watch(
+  () => route.params.slug,
+  (newSlug) => store.fetchDataBySlug(newSlug)
+);
 </script>
