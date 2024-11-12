@@ -1,7 +1,7 @@
 <template>
   <div class="w-1/4">
     <div class="w-full sticky top-28 z-20 space-y-8">
-      <div class="space-y-4 border p-6 rounded-lg">
+      <div class="bg-white space-y-4 border p-6 rounded-lg">
         <h3 class="text-xl">Filter by Difficulty</h3>
 
         <template v-if="loading">
@@ -21,11 +21,15 @@
         </div>
       </div>
 
-      <div class="space-y-4 border p-6 rounded-lg">
+      <div class="bg-white space-y-4 border p-6 rounded-lg">
         <h3 class="text-xl">Filter by Tags</h3>
 
         <div>
-          <select name="tags" id="tags" class="w-full border p-2 rounded-lg">
+          <select
+            name="tags"
+            id="tags"
+            class="py-1 px-2 bg-white cursor-pointer w-full border rounded-lg h-8"
+          >
             <option selected disabled>Select tags</option>
             <option v-for="tag in tags" :key="tag" :value="tag">
               {{ tag }}
@@ -34,7 +38,7 @@
         </div>
       </div>
 
-      <div class="space-y-4 border p-6 rounded-lg">
+      <div class="bg-white space-y-4 border p-6 rounded-lg">
         <h3 class="text-xl">Filter by Cook Time</h3>
 
         <template v-if="loading">

@@ -11,7 +11,7 @@
         v-else
         v-for="mealType in mealTypes"
         :key="mealType"
-        class="border py-2 px-6 rounded-full cursor-pointer hover:bg-gray-100 transition duration-300 ease-in-out"
+        class="bg-white border py-2 px-6 rounded-full cursor-pointer hover:bg-gray-100 transition duration-300 ease-in-out"
       >
         {{ mealType }}
       </div>

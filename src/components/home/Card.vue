@@ -8,7 +8,7 @@
       <div
         v-for="recipe in recipes"
         :key="recipe"
-        class="flex gap-2 border rounded-lg h-[320px]"
+        class="flex gap-2 border rounded-lg h-[320px] bg-white"
       >
         <div class="relative overflow-hidden rounded-s-lg flex-1">
           <img
