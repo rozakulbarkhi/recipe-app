@@ -12,7 +12,13 @@
           <div
             v-for="item in difficulty"
             :key="item"
-            class="border rounded-full w-20 flex justify-center items-center cursor-pointer hover:bg-gray-100 transition duration-300 ease-in-out"
+            class="border rounded-full w-24 flex justify-center items-center cursor-pointer hover:bg-gray-100 transition duration-300 ease-in-out"
+            :class="
+              filterDifficulty === item
+                ? 'bg-blue-900 text-white hover:bg-blue-900'
+                : ''
+            "
+            @click="handleDifficulty(item)"
           >
             <div>
               {{ item }}
@@ -28,9 +34,10 @@
           <select
             name="tags"
             id="tags"
-            class="py-1 px-2 bg-white cursor-pointer w-full border rounded-lg h-8"
+            class="py-1 px-2 bg-white cursor-pointer w-full border rounded-lg h-8 hover:bg-gray-100 transition duration-300 ease-in-out"
+            @change="handleTags($event.target.value)"
           >
-            <option selected disabled>Select tags</option>
+            <option value="">All tags</option>
             <option v-for="tag in tags" :key="tag" :value="tag">
               {{ tag }}
             </option>
@@ -49,7 +56,13 @@
           <div
             v-for="time in cookTime"
             :key="time"
-            class="border rounded-full w-24 flex justify-center items-center cursor-pointer hover:bg-gray-100 transition duration-300 ease-in-out"
+            class="border rounded-full w-28 flex justify-center items-center cursor-pointer hover:bg-gray-100 transition duration-300 ease-in-out"
+            :class="
+              filterCookTime === time
+                ? 'bg-blue-900 text-white hover:bg-blue-900'
+                : ''
+            "
+            @click="handleCookTime(time)"
           >
             <div>{{ time }}</div>
           </div>
@@ -61,12 +74,39 @@
 
 <script setup>
 import { storeToRefs } from "pinia";
+import { onBeforeRouteLeave } from "vue-router";
 
-import { useRecipesStore } from "@/stores/recipes-store";
 import CookTimeSkeleton from "../skeleton/CookTimeSkeleton.vue";
 import DifficultySkeleton from "../skeleton/DifficultySkeleton.vue";
 
-const store = useRecipesStore();
+import { useRecipesStore } from "@/stores/recipes-store";
+import { useFilterStore } from "@/stores/filter-store";
 
-const { tags, difficulty, cookTime, loading, error } = storeToRefs(store);
+const recipesStore = useRecipesStore();
+const filterStore = useFilterStore();
+
+const { tags, difficulty, cookTime, loading, error } =
+  storeToRefs(recipesStore);
+const {
+  difficulty: filterDifficulty,
+  tags: filterTags,
+  cookTime: filterCookTime,
+} = storeToRefs(filterStore);
+
+const handleDifficulty = (selectedDifficulty) =>
+  filterDifficulty.value === selectedDifficulty
+    ? filterStore.setDifficulty("")
+    : filterStore.setDifficulty(selectedDifficulty);
+
+const handleTags = (selectedTags) =>
+  filterTags.value === selectedTags
+    ? filterStore.setTags("")
+    : filterStore.setTags(selectedTags);
+
+const handleCookTime = (selectedCookTime) =>
+  filterCookTime.value === selectedCookTime
+    ? filterStore.setCookTime("")
+    : filterStore.setCookTime(selectedCookTime);
+
+onBeforeRouteLeave((to, from) => filterStore.$reset());
 </script>
